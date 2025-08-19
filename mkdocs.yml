@@ -1,7 +1,7 @@
 site_name: Template de Entrega
 site_author: Sandmann, H.
-site_url: https://hsandmann.github.io/documentation.template
-repo_url: https://github.com/hsandmann/documentation.template
+site_url: https://Jose-Longo-A.github.io/Machine-Learning
+repo_url: https://github.com/Jose-Longo-A/Machine-Learning
 repo_name: github/documentation.template
 
 theme:
@@ -134,6 +134,7 @@ extra_javascript:
 nav:
   - Home: index.md
   - This documentation: ./thisdocumentation/main.md
+  - Arvore de decisão: ./arvore-de-decisao/main.md
   - Roteiros:
     - Roteiro 1: ./roteiro1/main.md
     - Roteiro 2: ./roteiro2/main.md
