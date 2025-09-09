@@ -136,6 +136,8 @@ nav:
   - This documentation: ./thisdocumentation/main.md
   - Árvore de decisão:
     - Fitness Dataset: ./arvore-de-decisao/main.md
+  - KNN:
+    - Fitness Dataset: ./knn/main.md
   - Roteiros:
     - Roteiro 1: ./roteiro1/main.md
     - Roteiro 2: ./roteiro2/main.md

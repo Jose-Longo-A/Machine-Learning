@@ -33,7 +33,7 @@ classifier = tree.DecisionTreeClassifier(random_state=42)
 classifier.fit(x_train, y_train)
 
 acc = accuracy_score(y_test, classifier.predict(x_test))
-print(f"<b>Precisão de validação:</b> {acc:.4f}<br>")
+print(f"<b>Acurácia da validação:</b> {acc:.4f}<br>")
 
 imp = pd.Series(classifier.feature_importances_, index=x.columns)
 imp_df = pd.DataFrame({"Feature": imp.index, "Importância": imp.values}).sort_values("Importância", ascending=False)
