@@ -1,3 +1,7 @@
+### Introdução
+
+A árvore de decisão é um algoritmo de aprendizado de máquina utilizado para resolver problemas de classificação e regressão. Seu funcionamento se baseia em uma estrutura hierárquica de nós, onde cada divisão (ramo) representa uma condição aplicada sobre uma variável, conduzindo a diferentes caminhos até chegar a um resultado final (folha). Essa técnica se destaca por sua simplicidade e interpretabilidade, permitindo compreender de forma clara quais fatores influenciam nas decisões do modelo. Além disso, as árvores de decisão conseguem lidar com variáveis numéricas e categóricas, sendo uma ferramenta versátil para análise e previsão em diferentes contextos.
+
 
 ## Exploração dos Dados
 
@@ -19,7 +23,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: nenhuma obrigatória; só checar faixas implausíveis (não observei no geral).
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/age.py"
+    --8<-- "docs/Exercicios/graficos/age.py"
     ```
 
 === "height_cm"
@@ -33,7 +37,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: checar valores muito fora do plausível. Sugestão: considerar substituir altura e peso por bmi(Índice de Massa Corporal).
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/height_cm.py"
+    --8<-- "docs/Exercicios/graficos/height_cm.py"
     ```
 
 === "weight_kg"
@@ -47,7 +51,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: manter como numérica ou criar bmi e remover height_cm/weight_kg das features (deixando só o bmi).
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/weight_kg.py"
+    --8<-- "docs/Exercicios/graficos/weight_kg.py"
     ```
 
 === "heart_rate"
@@ -61,7 +65,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: nenhuma obrigatória; apenas conferir plausibilidade de valores extremos.
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/heart_rate.py"
+    --8<-- "docs/Exercicios/graficos/heart_rate.py"
     ```
 
 === "blood_pressure"
@@ -75,7 +79,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: nenhuma obrigatória; só verificar extremos muito fora do usual.
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/blood_pressure.py"
+    --8<-- "docs/Exercicios/graficos/blood_pressure.py"
     ```
 
 === "Sleep_Hours"
@@ -89,7 +93,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: possui valores ausentes (160 valores); imputar com a mediana.
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/sleep_hours.py"
+    --8<-- "docs/Exercicios/graficos/sleep_hours.py"
     ```
 
 === "Nutrition_quality"
@@ -103,7 +107,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: nenhuma; manter como numérica (só garantir faixa válida).
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/nutrition_quality.py"
+    --8<-- "docs/Exercicios/graficos/nutrition_quality.py"
     ```
 
 === "Activity_index"
@@ -117,7 +121,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: nenhuma; manter como numérica (garantir faixa válida).
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/activity_index.py"
+    --8<-- "docs/Exercicios/graficos/activity_index.py"
     ```
 
 === "smokes"
@@ -131,7 +135,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: tipos mistos no bruto (“yes/no” e “1/0”). Padronizar para binário numérico (no→0, yes→1) e converter para int.
     
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/smokes.py"
+    --8<-- "docs/Exercicios/graficos/smokes.py"
     ```
 
 === "gender"
@@ -145,7 +149,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: codificar para numérico (F→0, M→1) e converter para int.
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/gender.py"
+    --8<-- "docs/Exercicios/graficos/gender.py"
     ```
 
 === "is_fit"
@@ -159,7 +163,7 @@ Para esse projeto foi utilizada o Dataset [Fitness Classification Dataset](https
     Ação necessária: checar balanceamento das classes.
 
     ```python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/graficos/is_fit.py"
+    --8<-- "docs/Exercicios/graficos/is_fit.py"
     ```
 
 ## Pré-processamento
@@ -188,19 +192,19 @@ Nesta etapa tratei e preparei os dados para treinar a Árvore de Decisão. Antes
 === "Base original"
     
     ```python exec="on"
-    --8<-- "docs/arvore-de-decisao/base_original.py"
+    --8<-- "docs/Exercicios/base_original.py"
     ```
 
 === "Tratamento"
 
     ```python
-    --8<-- "docs/arvore-de-decisao/base_tratada.py"
+    --8<-- "docs/Exercicios/base_tratada.py"
     ```
 
 === "Base Tratada"
 
     ```python exec="on"
-    --8<-- "docs/arvore-de-decisao/base_tratada.py"
+    --8<-- "docs/Exercicios/base_tratada.py"
     ```
 
 
@@ -218,7 +222,7 @@ Nota: em um pipeline mais rígido, a imputação/codificação seria ajustada no
     Mesma configuração de split (70/30, random_state=42, stratify=y).
 
     ``` python exec="0"
-    --8<-- "docs/arvore-de-decisao/divisaodadosA.py"
+    --8<-- "docs/Exercicios/divisaodadosA.py"
     ```
 
 === "Cenário B"
@@ -231,7 +235,7 @@ Nota: em um pipeline mais rígido, a imputação/codificação seria ajustada no
     Comparação justa: ambos os cenários usam o mesmo split (70/30, random_state=42, stratify=y).
 
     ``` python exec="0"
-    --8<-- "docs/arvore-de-decisao/divisaodadosB.py"
+    --8<-- "docs/Exercicios/divisaodadosB.py"
     ```
 
 
@@ -240,13 +244,13 @@ Nota: em um pipeline mais rígido, a imputação/codificação seria ajustada no
 === "Árvore"
 
     ``` python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/treino1.py"
+    --8<-- "docs/Exercicios//arvore-de-decisao/treino1.py"
     ```
 
 === "code"
 
     ``` python exec="0"
-    --8<-- "docs/arvore-de-decisao/treino1.py"
+    --8<-- "docs/Exercicios//arvore-de-decisao/treino1.py"
     ```
 
 ### Avaliação do primeiro modelo
@@ -259,14 +263,14 @@ Em resumo: o sinal principal vem de atividade física e qualidade da alimentaç�
 === "Árvore"
 
     ``` python exec="on" html="1"
-    --8<-- "docs/arvore-de-decisao/treino2.py"
+    --8<-- "docs/Exercicios//arvore-de-decisao/treino2.py"
     ```
 
 
 === "code"
 
     ``` python exec="0"
-    --8<-- "docs/arvore-de-decisao/treino2.py"
+    --8<-- "docs/Exercicios//arvore-de-decisao/treino2.py"
     ```
 
 ### Avaliação do segundo modelo

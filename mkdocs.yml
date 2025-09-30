@@ -110,7 +110,7 @@ plugins:
       enable_creation_date: true
   - git-authors
   - git-committers:
-      repository: hsandmann/hsandmann.github.com
+      repository: https://github.com/Jose-Longo-A
       branch: main
   - search
   - badges
@@ -132,15 +132,16 @@ extra_javascript:
   - https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js
 
 nav:
-  - Home: index.md
-  - This documentation: ./thisdocumentation/main.md
-  - Árvore de decisão:
-    - Fitness Dataset: ./arvore-de-decisao/main.md
-  - KNN:
-    - Fitness Dataset: ./knn/main.md
-  - Roteiros:
-    - Roteiro 1: ./roteiro1/main.md
-    - Roteiro 2: ./roteiro2/main.md
-    - Roteiro 3: ./roteiro3/main.md
-    - Roteiro 4: ./roteiro4/main.md
-  - Projeto: ./projeto/main.md
+  #- Home: index.md
+  #- This documentation: ./thisdocumentation/main.md
+  - Exercios:
+    - Árvore de decisão: ./Exercicios/arvore-de-decisao/main.md 
+    - KNN: ./Exercicios/knn/main.md
+    - K-Means: ./Exercicios/k-means/main.md
+    - Métricas de Avaliação: ./Exercicios/metricasdeavl/main.md
+  #- Roteiros:
+    #- Roteiro 1: ./roteiro1/main.md
+    #- Roteiro 2: ./roteiro2/main.md
+    #- Roteiro 3: ./roteiro3/main.md
+    #- Roteiro 4: ./roteiro4/main.md
+  #- Projeto: ./projeto/main.md
