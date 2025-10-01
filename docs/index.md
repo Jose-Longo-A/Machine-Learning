@@ -12,9 +12,9 @@
 ## Redes & contato
 
 [:fontawesome-brands-github: GitHub](https://github.com/Jose-Longo-A){ target=_blank } ·
-[:fontawesome-brands-linkedin: LinkedIn](https://www.linkedin.com/in/SEU-LINK){ target=_blank } ·
-[:fontawesome-brands-instagram: Instagram](https://www.instagram.com/SEU-USER){ target=_blank } ·
-[:fontawesome-solid-envelope: E-mail](mailto:SEU-EMAIL@dominio.com)
+[:fontawesome-brands-linkedin: LinkedIn](https://www.linkedin.com/in/jos%C3%A9-longo/){ target=_blank } ·
+[:fontawesome-solid-folder-open: Portfólio](https://jose-longo-a.github.io/Portfolio/#home){ target=_blank } ·
+[:fontawesome-solid-envelope: E-mail](mailto:joselongoneto@gmail.com)
 
 ---
 
