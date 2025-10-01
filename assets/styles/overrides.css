@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* ===== CLARO ===== */
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #5A6C4F; /* header, links primários */
+  --md-primary-fg-color--light: #6f8362;
+  --md-primary-fg-color--dark:  #48553f;
+
+  --md-default-bg-color: #F7F1E6; /* fundo da página */
+  --md-default-fg-color: #1C1C1C; /* texto padrão */
+  --md-typeset-color:    #1C1C1C; /* texto no conteúdo */
+
+  --md-accent-fg-color:  #5A6C4F; /* cor de links/realces */
+  --md-code-bg-color:    #EEE6D6; /* fundo dos blocos de código */
+}
+
+/* Fonte global (opcional) */
+html, body {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ===== ESCURO ===== */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #7D5BA6;
+  --md-primary-fg-color--light: #9172b3;
+  --md-primary-fg-color--dark:  #664a86;
+
+  --md-default-bg-color: #1C1C1C;
+  --md-default-fg-color: #F7F1E6;
+  --md-typeset-color:    #F7F1E6;
+
+  --md-accent-fg-color:  #7D5BA6;
+  --md-code-bg-color:    #2A2A2A;
+}
+
+[data-md-component="palette"] .md-header__button .md-icon {
+  width: 18px;
+  height: 18px;
+  transform: translateY(1px); /* pequeno ajuste vertical opcional */
+}
