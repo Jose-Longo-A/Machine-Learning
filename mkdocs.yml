@@ -1,8 +1,9 @@
-site_name: Machine Learning
+site_name: ML • José Longo
 site_author: José Longo
 site_url: https://Jose-Longo-A.github.io/Machine-Learning
 repo_url: https://github.com/Jose-Longo-A/Machine-Learning
-repo_name: github/documentation.template
+repo_name: GitHub
+
 
 theme:
   name: material
@@ -12,14 +13,14 @@ theme:
     - scheme: default
       primary: grey
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: fontawesome/solid/moon
         name: Switch to dark mode
 
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       primary: grey
       toggle:
-        icon: material/toggle-switch
+        icon: fontawesome/solid/sun
         name: Switch to light mode
 
     # Palette toggle for light mode
@@ -27,7 +28,7 @@ theme:
       scheme: default 
       primary: grey
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: fontawesome/solid/moon
         name: Switch to dark mode
 
     # Palette toggle for dark mode
@@ -35,7 +36,7 @@ theme:
       primary: grey
       scheme: slate
       toggle:
-        icon: material/toggle-switch
+        icon: fontawesome/solid/sun
         name: Switch to system preference
   features:
     - content.code.copy
@@ -50,6 +51,8 @@ theme:
     - navigation.expand
   icon:
     # logo: assets/images/devops
+    repo: fontawesome/brands/github
+    logo: fontawesome/solid/microchip
     admonition:
       note: fontawesome/solid/note-sticky
       abstract: fontawesome/solid/book
@@ -130,6 +133,9 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://fastly.jsdelivr.net/npm/jquery/dist/jquery.min.js
   - https://fastly.jsdelivr.net/npm/echarts/dist/echarts.min.js
+
+extra_css:
+  - assets/styles/overrides.css
 
 nav:
   - Home: index.md

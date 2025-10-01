@@ -1,1 +1,1 @@
-Seja bem-vindo ao meu portfólio de Machine Learning
+Olá! me chamo José Longo Neto e esse é meu portfólio 
