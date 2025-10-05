@@ -14,7 +14,7 @@ classDiagram
         - String nome
         - List<Conta> contas
     }
-    class PessoaFisica {
+    class PessoaFisica { 
         - String cpf
     }
     class PessoaJuridica {

@@ -13,7 +13,7 @@ df['GOOGL'] = pd.Series([7, 8, 9])
 
 print(df)
 
-```
+``` 
 
 [^1]: [Pyodide](https://pawamoy.github.io/markdown-exec/usage/pyodide/){target="_blank"}
 

@@ -44,7 +44,7 @@ architecture-beta
     service disk2(disk)[Storage] in api
     service server(server)[Server] in api
 
-    db:L -- R:server
+    db:L -- R:server 
     disk1:T -- B:server
     disk2:T -- B:db
 ```
