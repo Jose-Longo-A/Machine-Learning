@@ -145,6 +145,7 @@ nav:
     - KNN: ./Exercicios/knn/main.md
     - K-Means: ./Exercicios/k-means/main.md
     - Métricas de Avaliação: ./Exercicios/metricasdeavl/main.md
+    - Random Forest: ./Exercicios/random_forest/main.md
   - Projetos:
     - Projeto 1: ./projetos/projeto1/main.md
     #- Roteiro 2: ./roteiro2/main.md
