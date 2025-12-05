@@ -1,8 +1,8 @@
-### Introdução às Métricas de Avaliação
+### Introdução ao SVM
 
-Neste exercício, o foco foi avaliar e comparar o desempenho de dois tipos de modelos aplicados ao dataset de fitness: um algoritmo supervisionado (KNN) e um algoritmo não supervisionado (K-Means). Em vez de analisar apenas acurácia de forma isolada, foram utilizadas métricas de classificação mais completas — como matriz de confusão, precisão, recall e F1-score — para entender não só “quanto” os modelos acertam, mas também “como” esses acertos e erros se distribuem entre as classes.
+O algoritmo Support Vector Machine (SVM) foi utilizado para resolver a tarefa de classificação da condição física (`is_fit`) a partir dos indicadores de saúde e estilo de vida do dataset. Diferente da árvore de decisão e do KNN, o SVM busca encontrar um hiperplano que separe as classes com a maior margem possível, podendo usar o *kernel trick* para projetar os dados em um espaço de maior dimensão e lidar melhor com fronteiras de decisão não lineares. 
 
-O KNN utiliza diretamente a variável-alvo is_fit para aprender padrões e tentar prever se um indivíduo é “fit” ou “não fit”. Já o K-Means forma clusters apenas com base na similaridade dos atributos, sem conhecer os rótulos durante o treinamento. Ao aplicar as métricas de avaliação em ambos os casos, é possível observar como um modelo supervisionado e um não supervisionado se comportam diante da mesma tarefa de classificação, destacando diferenças de desempenho e limitações de cada abordagem.
+Neste exercício, aplico um SVM com kernel RBF para prever se um indivíduo é “fit” (1) ou “não fit” (0), comparando seu desempenho com os modelos já treinados anteriormente.
 
 ### Descrição sobre o banco
 
@@ -205,54 +205,26 @@ Esse mesmo pipeline de pré-processamento é reutilizado tanto no KNN quanto no 
     --8<-- "docs/Exercicios/base_tratada.py"
     ```
 
----
+### Divisão dos Dados
 
-### Métricas – KNN
+Para o SVM, mantive exatamente o mesmo esquema de divisão utilizado nos outros modelos supervisionados: 70% dos dados para treino e 30% para teste, com `random_state=42` para reprodutibilidade e `stratify=y` para preservar a proporção entre as classes de `is_fit` em ambas as partições. 
 
-O KNN foi avaliado utilizando o conjunto de teste separado previamente (80% treino, 20% teste). As métricas aplicadas — matriz de confusão, acurácia, precisão, recall e F1-score — permitem entender não apenas o desempenho geral do modelo, mas também como ele lida com cada classe individualmente.
+Além disso, como o SVM é sensível à escala das variáveis, as features numéricas foram padronizadas com `StandardScaler` dentro de um `Pipeline`, garantindo que o modelo seja treinado em atributos na mesma ordem de grandeza.
 
-Como o KNN é supervisionado, ele aprende diretamente a relação entre os atributos e a variável is_fit, o que normalmente resulta em métricas superiores quando comparado a métodos não supervisionados. Aqui, observamos o equilíbrio entre identificar corretamente indivíduos “fit” e “não fit”, além de verificar se o modelo possui tendência a favorecer uma classe específica.
+### Treinamento e Métricas – SVM
+
+Nesta seção, treino um modelo de SVM com kernel RBF para prever a variável `is_fit`. O modelo é encapsulado em um `Pipeline` que primeiro padroniza os dados com `StandardScaler` e, em seguida, aplica o `SVC`. Em seguida, avalio o desempenho usando acurácia simples, acurácia balanceada, matriz de confusão e o relatório de classificação (precisão, recall e F1-score por classe).
 
 ```python exec="on" html="1"
---8<-- "docs/Exercicios/knn/resultado1.py"
+--8<-- "docs/Exercicios/Sup_Vect_Mach/treino_svm.py"
 ```
 
+### Visualização da Fronteira de Decisão
+
+Para aproximar a visualização do que foi feito na aula de SVM, reduzi o conjunto de features para duas dimensões por meio de PCA após a padronização. Em seguida, treinei um SVM RBF nesse espaço 2D e plotei a fronteira de decisão, junto com os pontos de treino.
+
+Essa projeção não preserva exatamente todas as relações do espaço original, mas ajuda a visualizar como o SVM separa, aproximadamente, os indivíduos “fit” e “não fit” em um plano.
+
 ```python exec="on" html="1"
---8<-- "docs/Exercicios/metricas/knn_metricas.py"
+--8<-- "docs/Exercicios/Sup_Vect_Mach/svm_decision_boundary.py"
 ```
-
-### Métricas - K-means
-
-Ao contrário do KNN, o K-Means não utiliza a variável is_fit durante o treinamento. Ele forma clusters apenas com base na similaridade entre os dados, o que torna especialmente interessante avaliar como os agrupamentos encontrados se alinham com as classes reais.
-
-Aplicar métricas de classificação aqui não serve para “criticar” o modelo — afinal, ele não foi treinado para prever classes — mas sim para verificar o quanto a estrutura natural dos dados se aproxima da divisão fit / não fit. Geralmente, o desempenho tende a ser inferior ao de modelos supervisionados, e isso ajuda a visualizar claramente a diferença entre aprender com rótulos e agrupar por proximidade.
-
-```python exec="on" html="1"
---8<-- "docs/Exercicios/k-means/treino.py"
-```
-
-```python exec="on" html="1"
---8<-- "docs/Exercicios/metricas/kmeans_metricas.py"
-```
-
-### Conclusão
-
-Nesta etapa final, comparo diretamente os resultados do KNN e do K-Means. A tabela resume as métricas mais relevantes e evidencia o comportamento esperado:
-
-- O KNN apresenta métricas superiores, especialmente em precisão e F1-score, pois utiliza os rótulos verdadeiros para aprender o padrão entre as variáveis.
-- O K-Means, por ser não supervisionado, forma agrupamentos baseados apenas na semelhança dos atributos. Por isso, mesmo que alguns padrões se alinhem parcialmente com a variável is_fit, o desempenho tende a ser menor.
-- A diferença entre os modelos ilustra claramente a importância dos rótulos na tarefa de classificação: quando há supervisão, a capacidade preditiva aumenta; quando não há, dependemos da estrutura natural dos dados, que nem sempre reflete as classes reais.
-
-No geral, o exercício reforça o entendimento das métricas de avaliação e mostra como elas podem ser aplicadas tanto em modelos supervisionados quanto em não supervisionados — permitindo analisar, comparar e interpretar resultados de forma consistente.
-
-```python exec="on" html="1"
---8<-- "docs/Exercicios/metricas/comparacao_metricas.py"
-``` 
-
-### Conclusão
-
-A projeção em duas dimensões via PCA mostra que as classes “fit” e “não fit” apresentam uma sobreposição considerável, indicando que a separação linear seria insuficiente — por isso o kernel RBF se torna mais adequado. A fronteira de decisão do SVM acompanha essa estrutura complexa dos dados, formando regiões curvas que tentam capturar os padrões não lineares presentes no dataset.
-
-Mesmo assim, o gráfico revela que nenhum hiperplano (mesmo não linear) consegue separar perfeitamente os indivíduos, já que muitos pontos das duas classes ocupam áreas próximas no espaço reduzido. Esse comportamento reforça a interpretação das métricas obtidas anteriormente: o SVM melhora a capacidade de classificação em relação a modelos mais simples, mas ainda encontra limitações devido à natureza sobreposta dos atributos de saúde.
-
-De forma geral, o SVM se mostrou um modelo robusto para esse conjunto de dados, oferecendo uma fronteira flexível e desempenho superior ao KNN, ao mesmo tempo em que evidencia os desafios inerentes ao problema de classificação da variável is_fit.
